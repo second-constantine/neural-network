@@ -3,7 +3,7 @@
 
 **how build:**
 ```
-gradle clean build
+gradle publishToMavenLocal
 ```
 
 **how run:**
