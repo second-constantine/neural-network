@@ -6,4 +6,5 @@ gradle/**
 **/target/**
 gradlew
 gradlew.bat
+gradle.properties
 *.iml

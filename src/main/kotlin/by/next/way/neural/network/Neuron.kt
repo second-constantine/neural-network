@@ -1,4 +1,4 @@
-package io.secondconstantine.neural.network
+package by.next.way.neural.network
 
 class Neuron(
         var output: Double = 0.0,

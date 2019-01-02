@@ -38,13 +38,12 @@ uploadArchives {
             pom.project {
                 name 'Neural Network'
                 packaging 'jar'
-                // optionally artifactId can be defined here
                 description 'Simple neural network in kotlin'
-                url 'http://www.example.com/example-application'
+                url 'https://next-way.by/'
 
                 scm {
-                    connection 'git@github.com:second-constantine/neural-network.git'
-                    developerConnection 'git@github.com:second-constantine/neural-network.git'
+                    connection 'scm:git@github.com:second-constantine/neural-network.git'
+                    developerConnection 'scm:git@github.com:second-constantine/neural-network.git'
                     url 'https://github.com/second-constantine/neural-network'
                 }
 
@@ -70,7 +69,7 @@ uploadArchives {
 publishing {
     publications {
         maven(MavenPublication) {
-            groupId = 'io.secondconstantine'
+            groupId = 'by.next-way'
             artifactId = 'neural.network'
             version = '1.0'
             from components.java
