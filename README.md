@@ -8,11 +8,11 @@ gradle publishToMavenLocal
 
 **how run:**
 ```
-example in test->java folders
+example in test->java
 ```
 
 **example how use:**
 
 ```
-compile "io.secondconstantine:neural.network:1.0"
+compile "by.next-way:neural.network:1.0"
 ```
