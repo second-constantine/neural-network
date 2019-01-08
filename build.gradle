@@ -15,7 +15,7 @@ task javadocJar(type: Jar) {
 }
 
 artifacts {
-    archives javadocJar, sourcesJar
+    archives javadocJar, sourcesJar, jar
 }
 
 signing {
@@ -25,6 +25,9 @@ signing {
 uploadArchives {
     repositories {
         mavenDeployer {
+            pom.groupId = 'by.next-way'
+            pom.artifactId = 'neural.network'
+            pom.version = '1.0'
             beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
 
             repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
