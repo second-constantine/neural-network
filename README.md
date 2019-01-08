@@ -14,5 +14,15 @@ example in test->java
 **example how use:**
 
 ```
-compile "by.next-way:neural.network:1.0"
+repositories {
+    maven {
+        url "https://oss.sonatype.org/content/groups/public"
+    }
+}
+```
+
+```
+dependencies {
+    compile "by.next-way:neural.network:1.0"
+}
 ```
