@@ -1,6 +1,5 @@
-package io.secondconstantine.neuralnetwork.simple;
+package by.next.way.neural.network;
 
-import by.next.way.neural.network.NeuralNetwork;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.BeforeEach;
