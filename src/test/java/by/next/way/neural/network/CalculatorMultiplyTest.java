@@ -6,6 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Random;
 
 class CalculatorMultiplyTest {
@@ -33,7 +34,7 @@ class CalculatorMultiplyTest {
             double first = random.nextDouble();
             double second = random.nextDouble();
             double sum = first * second;
-            neuralNetwork.train(Arrays.asList(first, second), Arrays.asList(sum));
+            neuralNetwork.train(Arrays.asList(first, second), Collections.singletonList(sum));
         }
         log.info("NN training finish!");
         print(neuralNetwork);

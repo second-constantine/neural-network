@@ -6,6 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Random;
 
 class CalculatorPlusTest {
@@ -33,7 +34,7 @@ class CalculatorPlusTest {
             double first = random.nextDouble() / 2;
             double second = random.nextDouble() / 2;
             double sum = first + second;
-            neuralNetwork.train(Arrays.asList(first, second), Arrays.asList(sum));
+            neuralNetwork.train(Arrays.asList(first, second), Collections.singletonList(sum));
         }
         log.info("NN training finish!");
         print(neuralNetwork);
@@ -48,7 +49,8 @@ class CalculatorPlusTest {
                         "0.42, 0.11 -> " + neuralNetwork.feedForward(Arrays.asList(0.42, 0.11)) + "\n" +
                         "0.1, 0.1 -> " + neuralNetwork.feedForward(Arrays.asList(0.1, 0.1)) + "\n" +
                         "0.4, 0.13 -> " + neuralNetwork.feedForward(Arrays.asList(0.4, 0.13)) + "\n" +
-                        "0.7, 0.11 -> " + neuralNetwork.feedForward(Arrays.asList(0.7, 0.11))
+                        "0.7, 0.11 -> " + neuralNetwork.feedForward(Arrays.asList(0.7, 0.11)) + "\n" +
+                        "0.5, 0.5 -> " + neuralNetwork.feedForward(Arrays.asList(0.5, 0.5))
         );
     }
 }
