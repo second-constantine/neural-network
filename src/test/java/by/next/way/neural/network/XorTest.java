@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 import java.util.Random;
 
-class NeuralNetworkTest {
+class XorTest {
 
     private static Logger log = LogManager.getLogger();
 
