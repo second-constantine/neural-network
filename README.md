@@ -16,13 +16,13 @@ example in test->java
 ```
 repositories {
     maven {
-        url "https://oss.sonatype.org/content/groups/public"
+        url "https://oss.sonatype.org/content/groups/staging/"
     }
 }
 ```
 
 ```
 dependencies {
-    compile "by.next-way:neural.network:1.0"
+    compile "by.next-way:neural.network:1.0.1"
 }
 ```
