@@ -27,7 +27,7 @@ uploadArchives {
         mavenDeployer {
             pom.groupId = 'by.next-way'
             pom.artifactId = 'neural.network'
-            pom.version = '1.0'
+            pom.version = '1.0.1'
             beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
 
             repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
@@ -74,7 +74,7 @@ publishing {
         maven(MavenPublication) {
             groupId = 'by.next-way'
             artifactId = 'neural.network'
-            version = '1.0'
+            version = '1.0.1'
             from components.java
         }
     }
@@ -118,5 +118,5 @@ buildscript {
 
 jar {
     baseName = "neural-network"
-    version = "1.0"
+    version = "1.0.1"
 }
