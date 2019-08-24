@@ -23,6 +23,6 @@ repositories {
 
 ```
 dependencies {
-    compile "by.next-way:neural.network:1.0.1"
+    compile "by.next-way:neural.network:1.1.0"
 }
 ```

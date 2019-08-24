@@ -1,45 +1,28 @@
 package by.next.way.neural.network
 
+import kotlin.math.exp
+import kotlin.math.pow
+
 class Neuron(
         var output: Double = 0.0,
         var inputs: MutableList<Double> = mutableListOf(),
         var weights: MutableList<Double> = mutableListOf()
 ) {
 
-    fun calculateInput(): Double {
+    fun calculateOutput(inputs: MutableList<Double>): Double {
         var total = 0.0
         for (i in inputs.indices) {
             total += inputs[i] * weights[i]
         }
-        return total
-    }
-
-    fun calculateError(targetOutput: Double): Double {
-        return 0.5 * Math.pow(targetOutput - output, 2.0)
-    }
-
-    fun calculateOutput(inputs: MutableList<Double>): Double {
         this.inputs = inputs
-        this.output = squash(calculateInput())
+        this.output = 1 / (1 + exp(-total))
         return output
     }
 
-    fun calculateErrorInput(targetOutput: Double): Double {
-        return diffOutput(targetOutput) * calculate()
-    }
+    fun calculateError(targetOutput: Double) = 0.5 * (targetOutput - output).pow(2.0)
 
-    fun calculate(): Double {
-        return output * (1 - output)
-    }
+    fun calculateErrorInput(targetOutput: Double) = -(targetOutput - output) * calculate()
 
-    private fun diffOutput(targetOutput: Double): Double {
-        return -(targetOutput - output)
-    }
+    fun calculate() = output * (1 - output)
 
-    companion object {
-
-        fun squash(totalNetInput: Double): Double {
-            return 1 / (1 + Math.exp(-totalNetInput))
-        }
-    }
 }
