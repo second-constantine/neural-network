@@ -1,10 +1,11 @@
 package by.next.way.neural.network
 
+import java.io.Serializable
 import java.util.*
 
-class NeuronLayer(
+data class NeuronLayer(
         val neurons: List<Neuron> = ArrayList()
-) {
+) : Serializable {
 
     fun feedForward(inputs: MutableList<Double>): MutableList<Double> {
         val ouputs = mutableListOf<Double>()

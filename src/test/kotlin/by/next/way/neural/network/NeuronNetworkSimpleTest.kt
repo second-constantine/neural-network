@@ -1,6 +1,5 @@
 package by.next.way.neural.network
 
-import by.next.way.neural.network.supply.TrainingSet
 import com.google.gson.Gson
 import org.apache.logging.log4j.LogManager
 import org.junit.jupiter.api.Assertions
@@ -24,8 +23,12 @@ class NeuronNetworkSimpleTest {
         """
         val trainingSet = gson.fromJson(json, TrainingSet::class.java)
         val data = trainingSet.data
-        val neuralNetwork = NeuralNetwork.create(data[0][0].size, data[0][1].size)
-        neuralNetwork.train(data)
+        val neuralNetwork = NeuralNetwork(
+                key = trainingSet.name,
+                numInputs = data[0][0].size,
+                numOutputs = data[0][1].size
+        )
+        neuralNetwork.train(data, epochSize = 10000)
         val zeroAndZero = neuralNetwork.prediction(arrayListOf(0.0, 0.0))
         log.info(zeroAndZero)
         Assertions.assertTrue(zeroAndZero < 0.1)

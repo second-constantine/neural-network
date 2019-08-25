@@ -1,11 +1,22 @@
 package by.next.way.neural.network
 
+import org.apache.logging.log4j.LogManager
+import java.io.Serializable
 import java.math.BigDecimal
 import java.util.*
 
-class NeuralNetwork(
-        val layers: List<NeuronLayer> = arrayListOf()
-) {
+data class NeuralNetwork(
+        val numInputs: Int,
+        val numOutputs: Int,
+        val additionalHiddenLayers: Int = 0,
+        val key: String = "unknown",
+        var dataSetProcessed: Long = 0,
+        val layers: List<NeuronLayer> = generateLayers(
+                numInputs = numInputs,
+                numOutputs = numOutputs,
+                hiddenLayerCount = additionalHiddenLayers
+        )
+) : Serializable {
 
     fun prediction(inputs: MutableList<Double>) = feedForward(inputs)[0]
 
@@ -19,11 +30,14 @@ class NeuralNetwork(
         return result
     }
 
-    fun train(dataSet: MutableList<MutableList<MutableList<Double>>>, epochSize: Int = 1000000) {
+    fun train(dataSet: MutableList<MutableList<MutableList<Double>>>, epochSize: Int = 100000) {
         val dataSetSize = dataSet.size
         for (i in 0 until epochSize) {
-            val choice = Random().nextInt(dataSetSize)
-            train(dataSet[choice][0], dataSet[choice][1])
+            log.info("[$key] epoch: $i from $epochSize | dataSetProcessed=$dataSetProcessed")
+            for (choice in 0 until dataSetSize) {
+                train(dataSet[choice][0], dataSet[choice][1])
+            }
+            dataSetProcessed += dataSetSize
         }
     }
 
@@ -104,21 +118,19 @@ class NeuralNetwork(
     }
 
     companion object {
-
+        private val log = LogManager.getLogger()
         private const val LEARNING_RATE = 0.5
         private val random = Random()
 
         @JvmStatic
-        fun create(numInputs: Int, numOutputs: Int, hiddenLayerCount: Int = 1): NeuralNetwork {
+        fun generateLayers(numInputs: Int, numOutputs: Int, hiddenLayerCount: Int = 0): List<NeuronLayer> {
             val layers = arrayListOf(NeuronLayer.create(numOutputs))
             val layerSize = numInputs * numOutputs * 2
             for (i in 0..hiddenLayerCount) {
                 layers.add(createLayers(layers, layerSize, layerSize))
             }
             layers.add(createLayers(layers, layerSize, numInputs))
-            return NeuralNetwork(
-                    layers = layers
-            )
+            return layers
         }
 
         private fun createLayers(layers: List<NeuronLayer>, layerSize: Int, numInputs: Int): NeuronLayer {

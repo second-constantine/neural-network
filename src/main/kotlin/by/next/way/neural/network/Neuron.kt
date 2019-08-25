@@ -1,13 +1,14 @@
 package by.next.way.neural.network
 
+import java.io.Serializable
 import kotlin.math.exp
 import kotlin.math.pow
 
-class Neuron(
+data class Neuron(
         var output: Double = 0.0,
         var inputs: MutableList<Double> = mutableListOf(),
         var weights: MutableList<Double> = mutableListOf()
-) {
+) : Serializable {
 
     fun calculateOutput(inputs: MutableList<Double>): Double {
         var total = 0.0

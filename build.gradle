@@ -22,11 +22,11 @@ dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     compile "org.apache.logging.log4j:log4j-api:2.11.2"
     compile "org.apache.logging.log4j:log4j-core:2.11.2"
+    compile "com.google.code.gson:gson:2.8.5"
 
     //junit5
     testCompile "org.junit.jupiter:junit-jupiter-api:5.4.2"
     testRuntime "org.junit.jupiter:junit-jupiter-engine:5.4.2"
-    testCompile "com.google.code.gson:gson:2.8.5"
 }
 
 compileKotlin {
