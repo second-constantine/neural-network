@@ -1,7 +1,7 @@
 package by.next.way.neural.network.app
 
 import by.next.way.neural.network.easy.ComplexML
-import by.next.way.neural.network.NeuralNetwork
+import by.next.way.neural.network.easy.NeuralNetwork
 import org.apache.logging.log4j.LogManager
 import java.io.File
 import javax.imageio.ImageIO

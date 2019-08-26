@@ -1,5 +1,6 @@
 package by.next.way.neural.network
 
+import by.next.way.neural.network.easy.NeuralNetwork
 import by.next.way.neural.network.easy.TrainingSet
 import com.google.gson.Gson
 import org.apache.logging.log4j.LogManager
