@@ -8,3 +8,5 @@ gradlew
 gradlew.bat
 gradle.properties
 *.iml
+.DS_Store
+*.ml

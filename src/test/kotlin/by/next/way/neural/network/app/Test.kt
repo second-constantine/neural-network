@@ -1,6 +1,6 @@
 package by.next.way.neural.network.app
 
-import by.next.way.neural.network.ComplexML
+import by.next.way.neural.network.easy.ComplexML
 import by.next.way.neural.network.NeuralNetwork
 import org.apache.logging.log4j.LogManager
 import java.io.File
@@ -153,6 +153,43 @@ object Test {
         return Pair(letter, mutableListOf(input))
     }
 
+
+    fun convertForML_1_plus_1(file: File): Pair<Int, MutableList<MutableList<Double>>> {
+        val fileName = file.name
+        val fileNameParts = fileName.split(".")
+        val letter = fileNameParts[1].toInt()
+        val image = ImageIO.read(file)
+        val width = image.width
+        val height = image.height
+        val input = mutableListOf<Double>()
+        for (x in 0 until height) {
+            var result = 0.0
+            for (y in (0 until width)) {
+                val colour = image.getRGB(y, x)
+                val multi = 1.0 / width
+                result += if (colour == -1) {
+                    0.0
+                } else {
+                    multi
+                }
+            }
+            input.add(result)
+        }
+        for (x in 0 until width) {
+            var result = 0.0
+            for (y in (0 until height)) {
+                val colour = image.getRGB(y, x)
+                val multi = 1.0 / width
+                result += if (colour == -1) {
+                    0.0
+                } else {
+                    multi
+                }
+            }
+            input.add(result)
+        }
+        return Pair(letter, mutableListOf(input))
+    }
 
     fun loadImage(file: File) {
         val image = ImageIO.read(file)

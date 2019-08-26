@@ -1,4 +1,4 @@
-package by.next.way.neural.network
+package by.next.way.neural.network.easy
 
 import org.apache.logging.log4j.LogManager
 import java.io.Serializable

@@ -1,4 +1,4 @@
-package by.next.way.neural.network
+package by.next.way.neural.network.easy
 
 import com.google.gson.Gson
 import org.apache.logging.log4j.LogManager

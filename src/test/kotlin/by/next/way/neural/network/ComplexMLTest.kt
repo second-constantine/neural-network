@@ -1,5 +1,6 @@
 package by.next.way.neural.network
 
+import by.next.way.neural.network.easy.ComplexML
 import org.apache.logging.log4j.LogManager
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test

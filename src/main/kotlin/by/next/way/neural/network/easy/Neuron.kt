@@ -1,4 +1,4 @@
-package by.next.way.neural.network
+package by.next.way.neural.network.easy
 
 import java.io.Serializable
 import kotlin.math.exp

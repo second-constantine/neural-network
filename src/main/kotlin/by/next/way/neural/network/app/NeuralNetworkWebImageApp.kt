@@ -1,7 +1,7 @@
 package by.next.way.neural.network.app
 
 import by.next.way.neural.network.NeuralNetwork
-import by.next.way.neural.network.TrainingSet
+import by.next.way.neural.network.easy.TrainingSet
 import com.google.gson.Gson
 import com.sun.net.httpserver.HttpServer
 import org.apache.logging.log4j.LogManager
