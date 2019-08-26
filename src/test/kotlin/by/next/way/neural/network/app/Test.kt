@@ -35,7 +35,7 @@ object Test {
     }
 
     fun trainDemo() {
-        val folder = File(MNIST_TEST_FOLDER)
+        val folder = File(MNIST_TRAIN_FOLDER)
         val files = folder.listFiles()
         log.info("Start prepare data")
         val data: MutableList<MutableList<MutableList<Double>>> = mutableListOf()
@@ -65,7 +65,9 @@ object Test {
                 numOutputs = data[0][1].size
         ))
         log.info("Start training [0]")
-        complexML.train(data, 1000)
+        for (i in 0..100) {
+            complexML.train(data, 1000)
+        }
         log.info("Start check results [0]")
         val finalFolder = File(MNIST_TRAIN_FOLDER)
         val finalFiles = finalFolder.listFiles()
