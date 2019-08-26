@@ -40,7 +40,7 @@ object Test {
         log.info("Start prepare data")
         val data: MutableList<MutableList<MutableList<Double>>> = mutableListOf()
         for (file in files) {
-            val item = convertForML_1(file)
+            val item = convertForML_1_plus_1(file)
             item.second.add(when (item.first) {
                 0 -> mutableListOf(0.1)
                 1 -> mutableListOf(0.2)
@@ -72,7 +72,7 @@ object Test {
         val finalFolder = File(MNIST_TRAIN_FOLDER)
         val finalFiles = finalFolder.listFiles()
         for (file in finalFiles) {
-            val item = convertForML_1(file)
+            val item = convertForML_1_plus_1(file)
             val prediction = complexML.prediction(item.second[0])
             log.info("${file.name} -> $prediction")
             loadImage(file)
